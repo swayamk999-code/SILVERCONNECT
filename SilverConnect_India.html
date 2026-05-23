@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SilverConnect India — Your Experience Still Matters</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Noto+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans', sans-serif;
+    background: #faf8f4;
+    color: #1c1c1c;
+    font-size: 16px;
+  }
+
+  /* NAV */
+  .sc-nav {
+    background: #0d2240;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .sc-logo { display: flex; align-items: center; gap: 10px; cursor: pointer; text-decoration: none; }
+  .sc-logo-icon {
+    width: 38px; height: 38px;
+    background: linear-gradient(135deg, #e8921a, #f5b73a);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+  .sc-logo-text { font-family: 'Libre Baskerville', serif; font-size: 17px; color: #fff; line-height: 1.2; }
+  .sc-logo-sub { font-size: 10px; color: #a0b8d4; font-family: 'Noto Sans', sans-serif; font-weight: 300; letter-spacing: 1px; text-transform: uppercase; }
+  .sc-nav-links { display: flex; gap: 4px; }
+  .sc-nav-btn { background: none; border: none; color: #a0b8d4; font-family: 'Noto Sans', sans-serif; font-size: 15px; padding: 8px 16px; border-radius: 8px; cursor: pointer; transition: all .2s; }
+  .sc-nav-btn:hover, .sc-nav-btn.active { background: rgba(255,255,255,.1); color: #fff; }
+  .sc-nav-cta { background: #e8921a; border: none; color: #fff; font-family: 'Noto Sans', sans-serif; font-weight: 600; font-size: 15px; padding: 11px 24px; border-radius: 24px; cursor: pointer; transition: all .2s; }
+  .sc-nav-cta:hover { background: #d07d10; }
+
+  /* HERO */
+  .sc-hero { background: #0d2240; padding: 80px 32px 88px; text-align: center; position: relative; overflow: hidden; }
+  .sc-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 100%, rgba(232,146,26,.15), transparent); pointer-events: none; }
+  .sc-hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(232,146,26,.15); border: 1px solid rgba(232,146,26,.4); color: #f5b73a; font-size: 13px; font-weight: 500; padding: 7px 18px; border-radius: 20px; margin-bottom: 28px; }
+  .sc-hero-title { font-family: 'Libre Baskerville', serif; font-size: 52px; line-height: 1.15; color: #fff; margin-bottom: 18px; }
+  .sc-hero-title em { color: #f5b73a; font-style: normal; }
+  .sc-hero-sub { font-size: 19px; color: #a0b8d4; max-width: 540px; margin: 0 auto 44px; line-height: 1.65; font-weight: 300; }
+  .sc-hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  /* BUTTONS */
+  .sc-btn-primary { background: #e8921a; color: #fff; border: none; border-radius: 12px; font-family: 'Noto Sans', sans-serif; font-weight: 600; font-size: 16px; padding: 17px 34px; cursor: pointer; transition: all .2s; display: inline-flex; align-items: center; gap: 8px; }
+  .sc-btn-primary:hover { background: #d07d10; transform: translateY(-2px); }
+  .sc-btn-secondary { background: rgba(255,255,255,.08); color: #fff; border: 1.5px solid rgba(255,255,255,.25); border-radius: 12px; font-family: 'Noto Sans', sans-serif; font-weight: 500; font-size: 16px; padding: 17px 30px; cursor: pointer; transition: all .2s; display: inline-flex; align-items: center; gap: 8px; }
+  .sc-btn-secondary:hover { background: rgba(255,255,255,.14); }
+  .sc-btn-whatsapp { background: #25d366; color: #fff; border: none; border-radius: 12px; font-family: 'Noto Sans', sans-serif; font-weight: 600; font-size: 16px; padding: 17px 30px; cursor: pointer; transition: all .2s; display: inline-flex; align-items: center; gap: 8px; }
+  .sc-btn-whatsapp:hover { background: #1ebe5a; transform: translateY(-2px); }
+
+  /* TRUST BAR */
+  .sc-trust { display: flex; justify-content: center; gap: 36px; flex-wrap: wrap; padding: 26px 32px; background: #fff; border-bottom: 1px solid #eee; }
+  .sc-trust-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #7a8898; }
+  .sc-trust-item i { color: #27a65c; font-size: 18px; }
+
+  /* STATS */
+  .sc-stats { background: #fff; display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid #eee; }
+  .sc-stat { padding: 30px 20px; text-align: center; border-right: 1px solid #eee; }
+  .sc-stat:last-child { border-right: none; }
+  .sc-stat-num { font-family: 'Libre Baskerville', serif; font-size: 32px; font-weight: 700; color: #0d2240; margin-bottom: 5px; }
+  .sc-stat-num span { color: #e8921a; }
+  .sc-stat-label { font-size: 13px; color: #7a8898; font-weight: 400; }
+
+  /* SECTIONS */
+  .sc-section { padding: 72px 32px; }
+  .sc-section-light { background: #faf8f4; }
+  .sc-section-white { background: #fff; }
+  .sc-section-dark { background: #0d2240; }
+  .sc-section-title { font-family: 'Libre Baskerville', serif; font-size: 34px; color: #0d2240; text-align: center; margin-bottom: 10px; }
+  .sc-section-title.light { color: #fff; }
+  .sc-section-sub { text-align: center; color: #7a8898; font-size: 16px; margin-bottom: 52px; font-weight: 300; line-height: 1.6; }
+  .sc-section-sub.light { color: #a0b8d4; }
+
+  /* HOW IT WORKS */
+  .sc-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 900px; margin: 0 auto; }
+  .sc-step { background: #fff; border-radius: 18px; border: 1px solid #e8edf2; padding: 36px 28px; text-align: center; transition: transform .2s; }
+  .sc-step:hover { transform: translateY(-5px); box-shadow: 0 12px 32px rgba(13,34,64,.08); }
+  .sc-step-icon { font-size: 40px; margin-bottom: 16px; }
+  .sc-step-num { width: 50px; height: 50px; border-radius: 50%; background: #0d2240; color: #e8921a; font-family: 'Libre Baskerville', serif; font-size: 22px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; }
+  .sc-step h3 { font-size: 18px; color: #0d2240; margin-bottom: 10px; font-weight: 600; }
+  .sc-step p { font-size: 14px; color: #7a8898; line-height: 1.7; font-weight: 300; }
+
+  /* CATEGORIES */
+  .sc-cats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 900px; margin: 0 auto; }
+  .sc-cat { background: #fff; border-radius: 14px; border: 1px solid #e8edf2; padding: 24px 18px; text-align: center; cursor: pointer; transition: all .2s; }
+  .sc-cat:hover { border-color: #e8921a; background: #fffbf5; transform: translateY(-3px); }
+  .sc-cat-icon { font-size: 32px; margin-bottom: 12px; }
+  .sc-cat h4 { font-size: 14px; color: #0d2240; font-weight: 600; margin-bottom: 5px; }
+  .sc-cat p { font-size: 12px; color: #7a8898; font-weight: 300; }
+
+  /* MENTOR CARDS */
+  .sc-mentors-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; max-width: 900px; margin: 0 auto; }
+  .sc-mentor-card { background: #fff; border-radius: 18px; border: 1px solid #e8edf2; overflow: hidden; transition: all .2s; cursor: pointer; }
+  .sc-mentor-card:hover { transform: translateY(-5px); box-shadow: 0 14px 36px rgba(13,34,64,.12); }
+  .sc-mentor-card-top { background: #0d2240; padding: 28px 22px 18px; text-align: center; position: relative; }
+  .sc-mentor-avatar { width: 76px; height: 76px; border-radius: 50%; border: 3px solid #e8921a; margin: 0 auto 14px; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 700; font-family: 'Libre Baskerville', serif; color: #fff; }
+  .sc-mentor-name { color: #fff; font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+  .sc-mentor-role { color: #a0b8d4; font-size: 12px; font-weight: 300; }
+  .sc-mentor-tag { position: absolute; top: 13px; right: 13px; background: rgba(232,146,26,.2); color: #f5b73a; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 10px; }
+  .sc-mentor-body { padding: 20px 22px 22px; }
+  .sc-mentor-exp { display: flex; align-items: center; gap: 6px; color: #7a8898; font-size: 13px; margin-bottom: 12px; }
+  .sc-mentor-exp i { color: #e8921a; }
+  .sc-skills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+  .sc-skill-tag { background: #f0f5ff; color: #2c5fc7; font-size: 11px; padding: 4px 10px; border-radius: 8px; font-weight: 500; }
+  .sc-mentor-rating { display: flex; align-items: center; gap: 4px; font-size: 13px; color: #7a8898; margin-bottom: 16px; }
+  .sc-mentor-rating strong { color: #1c1c1c; }
+  .sc-stars { color: #e8921a; font-size: 14px; }
+  .sc-mentor-price { display: flex; align-items: center; justify-content: space-between; }
+  .sc-price { font-size: 16px; font-weight: 600; color: #0d2240; }
+  .sc-price span { font-size: 12px; color: #7a8898; font-weight: 400; }
+  .sc-book-btn { background: #e8921a; color: #fff; border: none; border-radius: 8px; font-size: 13px; font-weight: 600; padding: 10px 18px; cursor: pointer; transition: all .2s; font-family: 'Noto Sans', sans-serif; }
+  .sc-book-btn:hover { background: #d07d10; }
+
+  /* TESTIMONIALS */
+  .sc-testimonials { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; max-width: 900px; margin: 0 auto; }
+  .sc-testimonial { background: rgba(255,255,255,.07); border-radius: 16px; border: 1px solid rgba(255,255,255,.12); padding: 28px; }
+  .sc-quote { font-size: 36px; color: #e8921a; line-height: 1; margin-bottom: 12px; font-family: 'Libre Baskerville', serif; }
+  .sc-testimonial p { font-size: 14px; color: #c8d8ea; line-height: 1.7; font-weight: 300; margin-bottom: 20px; }
+  .sc-testimonial-author { display: flex; align-items: center; gap: 12px; }
+  .sc-t-avatar { width: 44px; height: 44px; border-radius: 50%; background: #e8921a; color: #fff; font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center; font-family: 'Libre Baskerville', serif; flex-shrink: 0; }
+  .sc-t-name { color: #fff; font-size: 14px; font-weight: 600; margin-bottom: 3px; }
+  .sc-t-role { color: #a0b8d4; font-size: 12px; font-weight: 300; }
+
+  /* FORMS */
+  .sc-signup-container { max-width: 600px; margin: 0 auto; background: #fff; border-radius: 22px; border: 1px solid #e8edf2; padding: 44px 40px; }
+  .sc-signup-title { font-family: 'Libre Baskerville', serif; font-size: 28px; color: #0d2240; margin-bottom: 8px; }
+  .sc-signup-sub { color: #7a8898; font-size: 14px; margin-bottom: 30px; font-weight: 300; line-height: 1.6; }
+  .sc-form-group { margin-bottom: 20px; }
+  .sc-form-label { display: block; font-size: 13px; font-weight: 600; color: #374151; margin-bottom: 7px; }
+  .sc-form-input { width: 100%; padding: 14px 16px; border: 1.5px solid #e0e7ef; border-radius: 10px; font-size: 15px; font-family: 'Noto Sans', sans-serif; color: #1c1c1c; background: #fafbfc; outline: none; transition: all .2s; }
+  .sc-form-input:focus { border-color: #e8921a; background: #fff; box-shadow: 0 0 0 3px rgba(232,146,26,.1); }
+  .sc-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .sc-skills-select { display: flex; flex-wrap: wrap; gap: 9px; }
+  .sc-skill-check { display: flex; align-items: center; gap: 6px; background: #f0f5ff; border: 1.5px solid #c5d5f0; border-radius: 8px; padding: 10px 14px; cursor: pointer; font-size: 13px; color: #2c5fc7; font-weight: 500; transition: all .2s; user-select: none; }
+  .sc-skill-check.selected { background: #0d2240; color: #f5b73a; border-color: #0d2240; }
+  .sc-submit-btn { width: 100%; padding: 17px; background: #e8921a; color: #fff; border: none; border-radius: 12px; font-size: 17px; font-weight: 600; font-family: 'Noto Sans', sans-serif; cursor: pointer; transition: all .2s; margin-top: 10px; }
+  .sc-submit-btn:hover { background: #d07d10; transform: translateY(-1px); }
+  .sc-trust-note { text-align: center; font-size: 12px; color: #9aa8b6; margin-top: 14px; font-weight: 300; }
+  .sc-trust-note strong { color: #0d2240; }
+
+  /* TABS */
+  .sc-tab-bar { display: flex; background: #fff; border-bottom: 1px solid #e8edf2; padding: 0 32px; }
+  .sc-tab { padding: 18px 24px; font-size: 15px; background: none; border: none; border-bottom: 3px solid transparent; cursor: pointer; font-family: 'Noto Sans', sans-serif; color: #7a8898; font-weight: 500; transition: all .2s; }
+  .sc-tab:hover { color: #0d2240; }
+  .sc-tab.active { color: #0d2240; border-bottom-color: #e8921a; font-weight: 600; }
+
+  /* PAGE HEADER */
+  .sc-page-header { background: #0d2240; padding: 56px 32px; text-align: center; }
+  .sc-page-header h1 { font-family: 'Libre Baskerville', serif; font-size: 38px; color: #fff; margin-bottom: 12px; }
+  .sc-page-header p { color: #a0b8d4; font-size: 17px; font-weight: 300; max-width: 540px; margin: 0 auto; }
+
+  /* FILTER BAR */
+  .sc-filter-bar { background: #fff; padding: 18px 32px; border-bottom: 1px solid #eee; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+
+  /* SUCCESS BANNER */
+  .sc-success-banner { background: #e8f9ef; border: 1.5px solid #6fcf97; border-radius: 12px; padding: 18px 22px; text-align: center; color: #1a7a45; font-size: 15px; font-weight: 500; margin-bottom: 22px; display: none; }
+
+  /* CTA BOX */
+  .sc-cta-box { background: #0d2240; border-radius: 24px; padding: 52px 44px; text-align: center; max-width: 680px; margin: 0 auto; }
+  .sc-cta-box h2 { font-family: 'Libre Baskerville', serif; font-size: 32px; color: #fff; margin-bottom: 14px; }
+  .sc-cta-box p { color: #a0b8d4; font-size: 16px; font-weight: 300; line-height: 1.6; margin-bottom: 36px; }
+  .sc-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  /* BUSINESS SERVICE CARDS */
+  .sc-service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; max-width: 900px; margin: 0 auto 48px; }
+  .sc-service-card { border-radius: 16px; padding: 30px 24px; text-align: center; }
+  .sc-service-card .icon { font-size: 38px; margin-bottom: 14px; }
+  .sc-service-card h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
+  .sc-service-card p { font-size: 14px; font-weight: 300; line-height: 1.65; }
+
+  /* COMMUNITY */
+  .sc-comm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; max-width: 760px; margin: 0 auto 32px; }
+  .sc-comm-card { background: #fff; border-radius: 16px; border: 1px solid #e8edf2; padding: 28px; }
+  .sc-comm-card .icon { font-size: 30px; margin-bottom: 12px; }
+  .sc-comm-card h3 { color: #0d2240; font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+  .sc-comm-card p { color: #7a8898; font-size: 14px; font-weight: 300; line-height: 1.6; margin-bottom: 16px; }
+  .sc-event-item { border-radius: 10px; padding: 13px 16px; margin-bottom: 10px; }
+  .sc-event-item h4 { font-size: 13px; font-weight: 600; color: #0d2240; margin-bottom: 3px; }
+  .sc-event-item p { font-size: 12px; color: #7a8898; margin: 0; }
+  .sc-room-item { border-radius: 10px; padding: 13px 16px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+  .sc-room-item span:first-child { font-size: 13px; font-weight: 600; color: #0d2240; }
+  .sc-room-badge { font-size: 11px; color: #7a8898; background: #f5f5f5; padding: 3px 10px; border-radius: 8px; }
+
+  /* WA FLOAT */
+  .sc-wa-float { position: fixed; bottom: 24px; right: 24px; background: #25d366; color: #fff; width: 56px; height: 56px; border-radius: 50%; border: none; font-size: 26px; cursor: pointer; box-shadow: 0 4px 16px rgba(37,211,102,.45); display: flex; align-items: center; justify-content: center; z-index: 999; transition: all .2s; text-decoration: none; }
+  .sc-wa-float:hover { transform: scale(1.1); }
+
+  /* FOOTER */
+  .sc-footer { background: #060f1d; color: #7a8898; padding: 40px 32px; text-align: center; font-size: 13px; line-height: 2; font-weight: 300; }
+  .sc-footer strong { color: #a0b8d4; }
+  .sc-footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; flex-wrap: wrap; }
+  .sc-footer-links a { color: #7a8898; text-decoration: none; font-size: 13px; }
+  .sc-footer-links a:hover { color: #a0b8d4; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .sc-hero-title { font-size: 34px; }
+    .sc-nav-links { display: none; }
+    .sc-stats { grid-template-columns: repeat(2, 1fr); }
+    .sc-steps { grid-template-columns: 1fr; }
+    .sc-mentors-grid { grid-template-columns: 1fr; }
+    .sc-cats { grid-template-columns: repeat(2, 1fr); }
+    .sc-testimonials { grid-template-columns: 1fr; }
+    .sc-form-row { grid-template-columns: 1fr; }
+    .sc-signup-container { padding: 30px 22px; }
+    .sc-service-grid { grid-template-columns: 1fr; }
+    .sc-comm-grid { grid-template-columns: 1fr; }
+    .sc-section { padding: 52px 20px; }
+    .sc-filter-bar { padding: 16px 20px; }
+    .sc-tab-bar { padding: 0 16px; }
+    .sc-tab { padding: 14px 14px; font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="sc-nav">
+  <a class="sc-logo" href="#" onclick="showPage('home')">
+    <div class="sc-logo-icon">🌟</div>
+    <div>
+      <div class="sc-logo-text">SilverConnect</div>
+      <div class="sc-logo-sub">India</div>
+    </div>
+  </a>
+  <div class="sc-nav-links">
+    <button class="sc-nav-btn active" onclick="showPage('home')">Home</button>
+    <button class="sc-nav-btn" onclick="showPage('mentors')">Find Mentors</button>
+    <button class="sc-nav-btn" onclick="showPage('business')">For Businesses</button>
+    <button class="sc-nav-btn" onclick="showPage('community')">Community</button>
+  </div>
+  <button class="sc-nav-cta" onclick="showPage('join')">Join Free →</button>
+</nav>
+
+<!-- ===== PAGE: HOME ===== -->
+<div id="page-home">
+
+  <div class="sc-hero">
+    <div class="sc-hero-badge">🇮🇳 India's Trusted Platform for Retired Professionals</div>
+    <h1 class="sc-hero-title">Your Experience<br><em>Still Matters.</em></h1>
+    <p class="sc-hero-sub">Connect. Mentor. Earn. Inspire. — Join thousands of retired experts helping startups, businesses, and the next generation across India.</p>
+    <div class="sc-hero-btns">
+      <button class="sc-btn-primary" onclick="showPage('join')">🌟 Join as Mentor — Free</button>
+      <button class="sc-btn-secondary" onclick="showPage('mentors')">🔍 Hire an Experienced Expert</button>
+      <button class="sc-btn-whatsapp">💬 Talk to Us on WhatsApp</button>
+    </div>
+  </div>
+
+  <div class="sc-trust">
+    <div class="sc-trust-item"><i class="ti ti-shield-check"></i> Verified Profiles</div>
+    <div class="sc-trust-item"><i class="ti ti-shield-check"></i> Secure Payments via Razorpay</div>
+    <div class="sc-trust-item"><i class="ti ti-shield-check"></i> No Complicated Technology</div>
+    <div class="sc-trust-item"><i class="ti ti-shield-check"></i> WhatsApp Support 24×7</div>
+    <div class="sc-trust-item"><i class="ti ti-shield-check"></i> 100% Indian Platform</div>
+  </div>
+
+  <div class="sc-stats">
+    <div class="sc-stat"><div class="sc-stat-num">2,400<span>+</span></div><div class="sc-stat-label">Registered Mentors</div></div>
+    <div class="sc-stat"><div class="sc-stat-num">18<span>+</span></div><div class="sc-stat-label">Industries Covered</div></div>
+    <div class="sc-stat"><div class="sc-stat-num">850<span>+</span></div><div class="sc-stat-label">Businesses Helped</div></div>
+    <div class="sc-stat"><div class="sc-stat-num">₹4.2<span>Cr</span></div><div class="sc-stat-label">Earned by Mentors</div></div>
+  </div>
+
+  <div class="sc-section sc-section-white">
+    <h2 class="sc-section-title">How It Works</h2>
+    <p class="sc-section-sub">Get started in 3 simple steps. No confusing technology — we help you every step of the way.</p>
+    <div class="sc-steps">
+      <div class="sc-step">
+        <div class="sc-step-icon">📝</div>
+        <div class="sc-step-num">1</div>
+        <h3>Create Your Profile</h3>
+        <p>Tell us about your experience, skills, and the work you'd like to do. Takes less than 10 minutes. We'll help if you need it.</p>
+      </div>
+      <div class="sc-step">
+        <div class="sc-step-icon">🤝</div>
+        <div class="sc-step-num">2</div>
+        <h3>Get Matched</h3>
+        <p>Our system connects you with startups and businesses who need your expertise. We also call you personally to help.</p>
+      </div>
+      <div class="sc-step">
+        <div class="sc-step-icon">💰</div>
+        <div class="sc-step-num">3</div>
+        <h3>Earn &amp; Inspire</h3>
+        <p>Consult, mentor, or teach — on your own schedule. Get paid securely after every session. Direct to your bank account.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sc-section sc-section-light">
+    <h2 class="sc-section-title">Browse by Expertise</h2>
+    <p class="sc-section-sub">Retired experts across every industry, ready to help your business grow.</p>
+    <div class="sc-cats">
+      <div class="sc-cat" onclick="showPage('mentors')"><div class="sc-cat-icon">🏦</div><h4>Banking &amp; Finance</h4><p>Ex-Bank Managers &amp; CFOs</p></div>
+      <div class="sc-cat" onclick="showPage('mentors')"><div class="sc-cat-icon">⚙️</div><h4>Engineering</h4><p>Factory &amp; Process Experts</p></div>
+      <div class="sc-cat" onclick="showPage('mentors')"><div class="sc-cat-icon">👩‍⚕️</div><h4>Healthcare</h4><p>Retired Doctors &amp; Nurses</p></div>
+      <div class="sc-cat" onclick="showPage('mentors')"><div class="sc-cat-icon">📚</div><h4>Education</h4><p>Retired Teachers &amp; Professors</p></div>
+      <div class="sc-cat" onclick="showPage('mentors')"><div class="sc-cat-icon">🏛️</div><h4>Government &amp; IAS</h4><p>Ex-Officers &amp; Administrators</p></div>
+      <div class="sc-cat" onclick="showPage('mentors')"><div class="sc-cat-icon">👥</div><h4>Human Resources</h4><p>Ex-HR Directors &amp; Managers</p></div>
+      <div class="sc-cat" onclick="showPage('mentors')"><div class="sc-cat-icon">📦</div><h4>Supply Chain</h4><p>Logistics &amp; Operations Veterans</p></div>
+      <div class="sc-cat" onclick="showPage('mentors')"><div class="sc-cat-icon">⚖️</div><h4>Legal &amp; Compliance</h4><p>Retired Lawyers &amp; Company Sec.</p></div>
+    </div>
+  </div>
+
+  <div class="sc-section sc-section-dark">
+    <h2 class="sc-section-title light">What Our Members Say</h2>
+    <p class="sc-section-sub light">Real stories from real professionals across India.</p>
+    <div class="sc-testimonials">
+      <div class="sc-testimonial">
+        <div class="sc-quote">"</div>
+        <p>After 35 years in banking, I thought I was done. SilverConnect gave me a new purpose — I now mentor 4 startups and earn more than I expected. My family is proud of me again.</p>
+        <div class="sc-testimonial-author">
+          <div class="sc-t-avatar">RS</div>
+          <div><div class="sc-t-name">Rajesh Sharma</div><div class="sc-t-role">Ex-SBI Branch Manager, Pune</div></div>
+        </div>
+      </div>
+      <div class="sc-testimonial">
+        <div class="sc-quote">"</div>
+        <p>I was 62 and worried about being forgotten. This platform is so easy to use — even my daughter was impressed! I got my first client in just one week of joining.</p>
+        <div class="sc-testimonial-author">
+          <div class="sc-t-avatar">MP</div>
+          <div><div class="sc-t-name">Meena Pillai</div><div class="sc-t-role">Retired HR Director, Chennai</div></div>
+        </div>
+      </div>
+      <div class="sc-testimonial">
+        <div class="sc-quote">"</div>
+        <p>As a startup founder, I needed someone who had REAL experience. SilverConnect connected me with a retired factory manager who saved us months of costly mistakes.</p>
+        <div class="sc-testimonial-author">
+          <div class="sc-t-avatar">AK</div>
+          <div><div class="sc-t-name">Arjun Kapoor</div><div class="sc-t-role">Founder, ManuTech Solutions, Mumbai</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sc-section sc-section-white">
+    <div class="sc-cta-box">
+      <h2>Ready to Make Your Experience Count?</h2>
+      <p>Join 2,400+ retired professionals who are earning, teaching, and thriving on SilverConnect India. It's completely free to start.</p>
+      <div class="sc-cta-btns">
+        <button class="sc-btn-primary" onclick="showPage('join')">🌟 Join as Mentor — Free</button>
+        <button class="sc-btn-whatsapp">💬 WhatsApp Us Now</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== PAGE: MENTORS ===== -->
+<div id="page-mentors" style="display:none">
+  <div class="sc-page-header">
+    <h1>Find Experienced Mentors</h1>
+    <p>Verified, trusted professionals — ready to help your business grow.</p>
+  </div>
+  <div class="sc-filter-bar">
+    <input class="sc-form-input" style="max-width:300px" placeholder="🔍  Search by skill or industry..." />
+    <select class="sc-form-input" style="max-width:200px">
+      <option>All Industries</option>
+      <option>Banking &amp; Finance</option>
+      <option>Engineering</option>
+      <option>Healthcare</option>
+      <option>Education</option>
+      <option>Government &amp; IAS</option>
+      <option>Human Resources</option>
+    </select>
+    <select class="sc-form-input" style="max-width:180px">
+      <option>Any Budget</option>
+      <option>Under ₹500/hr</option>
+      <option>₹500–₹1500/hr</option>
+      <option>₹1500+/hr</option>
+    </select>
+    <select class="sc-form-input" style="max-width:180px">
+      <option>Any Work Type</option>
+      <option>Consulting</option>
+      <option>Mentoring</option>
+      <option>Teaching</option>
+      <option>Advisory Board</option>
+    </select>
+  </div>
+  <div class="sc-section sc-section-light">
+    <div class="sc-mentors-grid">
+      <div class="sc-mentor-card">
+        <div class="sc-mentor-card-top">
+          <div class="sc-mentor-tag">⭐ Top Rated</div>
+          <div class="sc-mentor-avatar" style="background:#1a4a7a">RS</div>
+          <div class="sc-mentor-name">Rajesh Sharma</div>
+          <div class="sc-mentor-role">Ex-SBI Branch Manager, Pune</div>
+        </div>
+        <div class="sc-mentor-body">
+          <div class="sc-mentor-exp"><i class="ti ti-briefcase"></i> 35 years of experience</div>
+          <div class="sc-skills"><span class="sc-skill-tag">Banking</span><span class="sc-skill-tag">Finance</span><span class="sc-skill-tag">Lending</span><span class="sc-skill-tag">Risk Management</span></div>
+          <div class="sc-mentor-rating"><span class="sc-stars">★★★★★</span>&nbsp;<strong>4.9</strong>&nbsp;(48 reviews)</div>
+          <div class="sc-mentor-price"><div class="sc-price">₹800 <span>/ hour</span></div><button class="sc-book-btn" onclick="showPage('join')">Book Now</button></div>
+        </div>
+      </div>
+      <div class="sc-mentor-card">
+        <div class="sc-mentor-card-top">
+          <div class="sc-mentor-avatar" style="background:#2d6a3f">MP</div>
+          <div class="sc-mentor-name">Meena Pillai</div>
+          <div class="sc-mentor-role">Retired HR Director, TCS Chennai</div>
+        </div>
+        <div class="sc-mentor-body">
+          <div class="sc-mentor-exp"><i class="ti ti-briefcase"></i> 28 years of experience</div>
+          <div class="sc-skills"><span class="sc-skill-tag">HR Strategy</span><span class="sc-skill-tag">Hiring</span><span class="sc-skill-tag">Culture Building</span></div>
+          <div class="sc-mentor-rating"><span class="sc-stars">★★★★★</span>&nbsp;<strong>4.8</strong>&nbsp;(31 reviews)</div>
+          <div class="sc-mentor-price"><div class="sc-price">₹650 <span>/ hour</span></div><button class="sc-book-btn" onclick="showPage('join')">Book Now</button></div>
+        </div>
+      </div>
+      <div class="sc-mentor-card">
+        <div class="sc-mentor-card-top">
+          <div class="sc-mentor-tag">🆕 New</div>
+          <div class="sc-mentor-avatar" style="background:#7a3020">DK</div>
+          <div class="sc-mentor-name">Dr. D. Krishnan</div>
+          <div class="sc-mentor-role">Retired Factory GM, BHEL Trichy</div>
+        </div>
+        <div class="sc-mentor-body">
+          <div class="sc-mentor-exp"><i class="ti ti-briefcase"></i> 40 years of experience</div>
+          <div class="sc-skills"><span class="sc-skill-tag">Manufacturing</span><span class="sc-skill-tag">Operations</span><span class="sc-skill-tag">Quality Control</span></div>
+          <div class="sc-mentor-rating"><span class="sc-stars">★★★★☆</span>&nbsp;<strong>4.7</strong>&nbsp;(12 reviews)</div>
+          <div class="sc-mentor-price"><div class="sc-price">₹1,200 <span>/ hour</span></div><button class="sc-book-btn" onclick="showPage('join')">Book Now</button></div>
+        </div>
+      </div>
+      <div class="sc-mentor-card">
+        <div class="sc-mentor-card-top">
+          <div class="sc-mentor-avatar" style="background:#4a2080">SG</div>
+          <div class="sc-mentor-name">Sunita Gupta</div>
+          <div class="sc-mentor-role">Ex-Principal, Delhi Govt School</div>
+        </div>
+        <div class="sc-mentor-body">
+          <div class="sc-mentor-exp"><i class="ti ti-briefcase"></i> 32 years of experience</div>
+          <div class="sc-skills"><span class="sc-skill-tag">Teaching</span><span class="sc-skill-tag">EdTech</span><span class="sc-skill-tag">Curriculum Design</span></div>
+          <div class="sc-mentor-rating"><span class="sc-stars">★★★★★</span>&nbsp;<strong>5.0</strong>&nbsp;(22 reviews)</div>
+          <div class="sc-mentor-price"><div class="sc-price">₹500 <span>/ hour</span></div><button class="sc-book-btn" onclick="showPage('join')">Book Now</button></div>
+        </div>
+      </div>
+      <div class="sc-mentor-card">
+        <div class="sc-mentor-card-top">
+          <div class="sc-mentor-tag">⭐ Top Rated</div>
+          <div class="sc-mentor-avatar" style="background:#1a5a5a">PV</div>
+          <div class="sc-mentor-name">P. Venkataraman</div>
+          <div class="sc-mentor-role">IAS Officer (Retd.), Tamil Nadu</div>
+        </div>
+        <div class="sc-mentor-body">
+          <div class="sc-mentor-exp"><i class="ti ti-briefcase"></i> 38 years of experience</div>
+          <div class="sc-skills"><span class="sc-skill-tag">Compliance</span><span class="sc-skill-tag">Policy Advisory</span><span class="sc-skill-tag">Govt Affairs</span></div>
+          <div class="sc-mentor-rating"><span class="sc-stars">★★★★★</span>&nbsp;<strong>4.9</strong>&nbsp;(64 reviews)</div>
+          <div class="sc-mentor-price"><div class="sc-price">₹2,000 <span>/ hour</span></div><button class="sc-book-btn" onclick="showPage('join')">Book Now</button></div>
+        </div>
+      </div>
+      <div class="sc-mentor-card">
+        <div class="sc-mentor-card-top">
+          <div class="sc-mentor-avatar" style="background:#6a2a1a">NK</div>
+          <div class="sc-mentor-name">Dr. Nirmala Kaur</div>
+          <div class="sc-mentor-role">Retired MBBS, AIIMS New Delhi</div>
+        </div>
+        <div class="sc-mentor-body">
+          <div class="sc-mentor-exp"><i class="ti ti-briefcase"></i> 30 years of experience</div>
+          <div class="sc-skills"><span class="sc-skill-tag">HealthTech</span><span class="sc-skill-tag">Clinical Ops</span><span class="sc-skill-tag">Medical Training</span></div>
+          <div class="sc-mentor-rating"><span class="sc-stars">★★★★★</span>&nbsp;<strong>4.8</strong>&nbsp;(19 reviews)</div>
+          <div class="sc-mentor-price"><div class="sc-price">₹1,500 <span>/ hour</span></div><button class="sc-book-btn" onclick="showPage('join')">Book Now</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE: BUSINESS ===== -->
+<div id="page-business" style="display:none">
+  <div class="sc-page-header">
+    <h1>Hire Experienced Talent</h1>
+    <p>Post your requirement, get matched with a verified expert — and get real results within 24 hours.</p>
+  </div>
+  <div class="sc-section sc-section-white">
+    <div style="max-width:900px;margin:0 auto">
+      <div class="sc-service-grid">
+        <div class="sc-service-card" style="background:#f0f5ff">
+          <div class="icon">🎯</div>
+          <h3 style="color:#0d2240">Advisory Board</h3>
+          <p style="color:#7a8898">Add credibility with retired industry leaders on your startup advisory board.</p>
+        </div>
+        <div class="sc-service-card" style="background:#f0fff5">
+          <div class="icon">🛠️</div>
+          <h3 style="color:#0d2240">Part-Time Projects</h3>
+          <p style="color:#7a8898">Hire for 3–6 month projects without full-time commitment or high costs.</p>
+        </div>
+        <div class="sc-service-card" style="background:#fffbf0">
+          <div class="icon">📞</div>
+          <h3 style="color:#0d2240">Quick Consultations</h3>
+          <p style="color:#7a8898">Book a 1-hour call with an expert. Solve your specific problem today.</p>
+        </div>
+      </div>
+      <div style="background:#0d2240;border-radius:22px;padding:48px 44px;max-width:640px;margin:0 auto">
+        <h2 style="font-family:'Libre Baskerville',serif;color:#fff;font-size:28px;margin-bottom:10px;text-align:center">Post Your Requirement</h2>
+        <p style="color:#a0b8d4;font-size:14px;margin-bottom:30px;text-align:center;font-weight:300">Tell us what you need — we'll match you with the right expert within 24 hours.</p>
+        <div id="biz-success" class="sc-success-banner">✅ Received! We will match you with the right mentor within 24 hours and call you to confirm.</div>
+        <div class="sc-form-row" style="margin-bottom:16px">
+          <input class="sc-form-input" placeholder="Your Company / Startup Name" />
+          <input class="sc-form-input" placeholder="Your Full Name" />
+        </div>
+        <div class="sc-form-row" style="margin-bottom:16px">
+          <input class="sc-form-input" placeholder="Mobile Number" />
+          <select class="sc-form-input">
+            <option>Type of Help Needed</option>
+            <option>Advisory Board Member</option>
+            <option>Consulting Project</option>
+            <option>Quick 1-hour Consultation</option>
+            <option>Training &amp; Workshops</option>
+          </select>
+        </div>
+        <div style="margin-bottom:16px">
+          <select class="sc-form-input">
+            <option>Industry Expertise Needed</option>
+            <option>Banking &amp; Finance</option>
+            <option>Engineering &amp; Manufacturing</option>
+            <option>Healthcare</option>
+            <option>HR &amp; Management</option>
+            <option>Government &amp; Compliance</option>
+          </select>
+        </div>
+        <textarea class="sc-form-input" rows="4" placeholder="Briefly describe what problem you want to solve or what expertise you need..." style="resize:vertical;margin-bottom:16px"></textarea>
+        <button class="sc-submit-btn" onclick="document.getElementById('biz-success').style.display='block'">Submit Requirement — Free →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE: COMMUNITY ===== -->
+<div id="page-community" style="display:none">
+  <div class="sc-page-header">
+    <h1>SilverConnect Community</h1>
+    <p>Share knowledge. Build friendships. Stay active, respected, and connected.</p>
+  </div>
+  <div class="sc-section sc-section-light">
+    <div class="sc-comm-grid">
+      <div class="sc-comm-card">
+        <div class="icon">🎙️</div>
+        <h3>Live Webinars</h3>
+        <p>Weekly talks by retired experts. Free to attend. Learn and teach from the comfort of your home.</p>
+        <div class="sc-event-item" style="background:#f0f5ff"><h4>Digital Finance for Startups</h4><p>by Rajesh Sharma · Tomorrow, 4:00 PM</p></div>
+        <div class="sc-event-item" style="background:#f0f5ff"><h4>Hiring Your First Team Right</h4><p>by Meena Pillai · Saturday, 11:00 AM</p></div>
+        <div class="sc-event-item" style="background:#f0f5ff"><h4>Manufacturing Quality Basics</h4><p>by Dr. D. Krishnan · Next Monday, 3 PM</p></div>
+      </div>
+      <div class="sc-comm-card">
+        <div class="icon">💬</div>
+        <h3>Discussion Rooms</h3>
+        <p>Talk to peers. Ask questions. Share wisdom with people who understand your journey.</p>
+        <div class="sc-room-item" style="background:#fffbf0"><span>Banking Veterans</span><span class="sc-room-badge">234 members</span></div>
+        <div class="sc-room-item" style="background:#fffbf0"><span>Educators Corner</span><span class="sc-room-badge">178 members</span></div>
+        <div class="sc-room-item" style="background:#fffbf0"><span>Engineering &amp; PSU</span><span class="sc-room-badge">312 members</span></div>
+        <div class="sc-room-item" style="background:#fffbf0"><span>Healthcare Professionals</span><span class="sc-room-badge">156 members</span></div>
+      </div>
+    </div>
+    <div style="background:#0d2240;border-radius:18px;padding:36px 32px;text-align:center;max-width:560px;margin:0 auto">
+      <div style="font-size:32px;margin-bottom:12px">📱</div>
+      <h3 style="color:#fff;font-size:20px;font-weight:600;margin-bottom:10px">Join Our WhatsApp Community</h3>
+      <p style="color:#a0b8d4;font-size:14px;font-weight:300;line-height:1.7;margin-bottom:24px">Get daily tips, job alerts, and connect with fellow professionals — all on WhatsApp. No complicated apps or technology needed.</p>
+      <button class="sc-btn-whatsapp">💬 Join WhatsApp Group — Free</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE: JOIN ===== -->
+<div id="page-join" style="display:none">
+  <div class="sc-page-header">
+    <h1>Join SilverConnect India</h1>
+    <p>Free to join. Simple steps. We will personally guide you if needed.</p>
+  </div>
+  <div class="sc-tab-bar">
+    <button class="sc-tab active" id="tab-mentor" onclick="switchTab('mentor')">🌟 I am a Retired Professional</button>
+    <button class="sc-tab" id="tab-biz" onclick="switchTab('biz')">🏢 I need to hire an Expert</button>
+  </div>
+  <div class="sc-section sc-section-light">
+
+    <div id="form-mentor">
+      <div class="sc-signup-container">
+        <h2 class="sc-signup-title">Create Your Mentor Profile</h2>
+        <p class="sc-signup-sub">Takes about 5–10 minutes. We will personally call you to complete the setup. No technical knowledge needed.</p>
+        <div id="join-success" class="sc-success-banner">🎉 Welcome to SilverConnect India! Your profile is being reviewed. We will call you within 24 hours to complete your setup.</div>
+        <div class="sc-form-group"><label class="sc-form-label">Your Full Name</label><input class="sc-form-input" placeholder="e.g. Rajesh Kumar Sharma" /></div>
+        <div class="sc-form-row">
+          <div class="sc-form-group"><label class="sc-form-label">Mobile Number</label><input class="sc-form-input" placeholder="+91 98765 43210" /></div>
+          <div class="sc-form-group"><label class="sc-form-label">City</label><input class="sc-form-input" placeholder="e.g. Mumbai" /></div>
+        </div>
+        <div class="sc-form-row">
+          <div class="sc-form-group">
+            <label class="sc-form-label">Years of Experience</label>
+            <select class="sc-form-input"><option>Select...</option><option>10–20 years</option><option>20–30 years</option><option>30+ years</option></select>
+          </div>
+          <div class="sc-form-group">
+            <label class="sc-form-label">Your Industry</label>
+            <select class="sc-form-input"><option>Select your industry</option><option>Banking &amp; Finance</option><option>Engineering &amp; Manufacturing</option><option>Healthcare</option><option>Education &amp; Teaching</option><option>Government &amp; PSU</option><option>HR &amp; People Management</option><option>Supply Chain &amp; Logistics</option><option>IT &amp; Technology</option><option>Legal &amp; Compliance</option></select>
+          </div>
+        </div>
+        <div class="sc-form-group"><label class="sc-form-label">Last Organisation / Company</label><input class="sc-form-input" placeholder="e.g. State Bank of India, BHEL, TCS, AIIMS..." /></div>
+        <div class="sc-form-group">
+          <label class="sc-form-label">What type of work are you open to? (tap all that apply)</label>
+          <div class="sc-skills-select">
+            <div class="sc-skill-check" onclick="toggleSkill(this)">💡 Consulting</div>
+            <div class="sc-skill-check" onclick="toggleSkill(this)">🧑‍🏫 Mentoring</div>
+            <div class="sc-skill-check" onclick="toggleSkill(this)">📚 Teaching</div>
+            <div class="sc-skill-check" onclick="toggleSkill(this)">🏛️ Advisory Board</div>
+            <div class="sc-skill-check" onclick="toggleSkill(this)">🎙️ Webinars</div>
+            <div class="sc-skill-check" onclick="toggleSkill(this)">📋 Part-time Projects</div>
+          </div>
+        </div>
+        <div class="sc-form-group">
+          <label class="sc-form-label">Your Preferred Hourly Rate (₹)</label>
+          <select class="sc-form-input"><option>Select your rate</option><option>₹300 – ₹500/hr</option><option>₹500 – ₹1,000/hr</option><option>₹1,000 – ₹2,000/hr</option><option>₹2,000+/hr</option><option>Let the platform suggest for me</option></select>
+        </div>
+        <div class="sc-form-group"><label class="sc-form-label">Languages You Can Work In</label><input class="sc-form-input" placeholder="e.g. English, Hindi, Tamil, Marathi..." /></div>
+        <button class="sc-submit-btn" onclick="document.getElementById('join-success').style.display='block';window.scrollTo(0,document.getElementById('join-success').offsetTop-80)">✅ Submit My Profile — Free</button>
+        <p class="sc-trust-note">🔒 Your data is <strong>100% secure and private</strong>. We will personally call you to complete setup. <strong>No spam calls, ever.</strong></p>
+      </div>
+    </div>
+
+    <div id="form-biz" style="display:none">
+      <div class="sc-signup-container">
+        <h2 class="sc-signup-title">Find the Right Expert for Your Business</h2>
+        <p class="sc-signup-sub">Tell us your requirement. We match you with verified professionals within 24 hours. Free to submit.</p>
+        <div id="biz-join-success" class="sc-success-banner">✅ Submitted successfully! Our team will personally call you within 24 hours to confirm your requirement and suggest the best mentors.</div>
+        <div class="sc-form-group"><label class="sc-form-label">Your Full Name</label><input class="sc-form-input" placeholder="Your name" /></div>
+        <div class="sc-form-row">
+          <div class="sc-form-group"><label class="sc-form-label">Mobile Number</label><input class="sc-form-input" placeholder="+91 98765 43210" /></div>
+          <div class="sc-form-group"><label class="sc-form-label">Company / Startup Name</label><input class="sc-form-input" placeholder="Your company name" /></div>
+        </div>
+        <div class="sc-form-group">
+          <label class="sc-form-label">Type of Help Needed</label>
+          <select class="sc-form-input"><option>Select...</option><option>Advisory Board Member</option><option>Part-time Consulting</option><option>1-hour Quick Consultation</option><option>Training / Workshop</option><option>Project-based Hiring</option></select>
+        </div>
+        <div class="sc-form-group">
+          <label class="sc-form-label">Industry Expertise Needed</label>
+          <select class="sc-form-input"><option>Select...</option><option>Banking &amp; Finance</option><option>Engineering &amp; Manufacturing</option><option>Healthcare</option><option>HR &amp; Management</option><option>Government &amp; Compliance</option><option>Education &amp; Training</option></select>
+        </div>
+        <div class="sc-form-group"><label class="sc-form-label">Budget (approximate)</label><select class="sc-form-input"><option>Select budget range</option><option>Under ₹5,000/month</option><option>₹5,000 – ₹15,000/month</option><option>₹15,000 – ₹50,000/month</option><option>₹50,000+/month</option><option>Let's discuss</option></select></div>
+        <div class="sc-form-group"><label class="sc-form-label">Describe Your Need</label><textarea class="sc-form-input" rows="4" placeholder="Tell us more about what problem you want to solve or what expertise you need from a retired professional..."></textarea></div>
+        <button class="sc-submit-btn" onclick="document.getElementById('biz-join-success').style.display='block'">✅ Submit Requirement — Free</button>
+        <p class="sc-trust-note">Our team will personally call you. <strong>No commitment or payment needed yet.</strong></p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="sc-footer">
+  <div class="sc-footer-links">
+    <a href="#" onclick="showPage('home')">Home</a>
+    <a href="#" onclick="showPage('mentors')">Find Mentors</a>
+    <a href="#" onclick="showPage('business')">For Businesses</a>
+    <a href="#" onclick="showPage('community')">Community</a>
+    <a href="#" onclick="showPage('join')">Join Free</a>
+  </div>
+  <strong>SilverConnect India</strong> — India's Easiest Platform for Retired Professionals<br>
+  Mission: Helping experience stay valuable. 🇮🇳<br>
+  📞 WhatsApp: +91 98765 00001 &nbsp;|&nbsp; 📧 hello@silverconnect.in<br><br>
+  <span style="font-size:11px">© 2025 SilverConnect India · All rights reserved · Made with ❤️ for India's retired heroes</span>
+</footer>
+
+<!-- WhatsApp Float Button -->
+<a class="sc-wa-float" href="https://wa.me/919876500001" target="_blank" title="Chat on WhatsApp">💬</a>
+
+<script>
+  function showPage(page) {
+    var pages = ['home','mentors','business','community','join'];
+    pages.forEach(function(p) {
+      var el = document.getElementById('page-' + p);
+      if (el) el.style.display = (p === page) ? 'block' : 'none';
+    });
+    document.querySelectorAll('.sc-nav-btn').forEach(function(b){ b.classList.remove('active'); });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function switchTab(tab) {
+    document.getElementById('form-mentor').style.display = tab === 'mentor' ? 'block' : 'none';
+    document.getElementById('form-biz').style.display = tab === 'biz' ? 'block' : 'none';
+    document.getElementById('tab-mentor').className = 'sc-tab' + (tab === 'mentor' ? ' active' : '');
+    document.getElementById('tab-biz').className = 'sc-tab' + (tab === 'biz' ? ' active' : '');
+  }
+
+  function toggleSkill(el) {
+    el.classList.toggle('selected');
+  }
+</script>
+</body>
+</html>
