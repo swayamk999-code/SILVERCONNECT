@@ -1,0 +1,86 @@
+// src/components/home/ProblemSection.tsx
+import ScrollReveal from '@/components/shared/ScrollReveal'
+import SectionHeader from '@/components/shared/SectionHeader'
+
+const problems = [
+  {
+    side: 'Retired Professionals',
+    icon: '😔',
+    color: 'from-blue-500 to-primary-600',
+    issues: [
+      'Decades of expertise going unused after retirement',
+      'Loss of professional identity and purpose',
+      'Financial knowledge and skills becoming obsolete',
+      'Limited platforms to contribute meaningfully',
+      'Social isolation from professional networks',
+    ],
+  },
+  {
+    side: 'Businesses & Startups',
+    icon: '😰',
+    color: 'from-amber-500 to-orange-600',
+    issues: [
+      'Cannot afford expensive consultants and advisors',
+      'Making costly mistakes due to lack of experience',
+      'Struggling with regulatory and compliance issues',
+      'No access to industry-specific mentorship',
+      'Missing strategic guidance for growth decisions',
+    ],
+  },
+]
+
+export default function ProblemSection() {
+  return (
+    <section className="section-padding bg-silver-50 relative overflow-hidden">
+      <div className="absolute inset-0 dot-pattern opacity-20" />
+      <div className="container-custom relative z-10">
+        <ScrollReveal>
+          <SectionHeader
+            badge="The Problem"
+            title="A World of Untapped Experience"
+            subtitle="Every year, millions of highly skilled professionals retire — taking decades of invaluable expertise with them. Meanwhile, businesses struggle without the guidance they desperately need."
+          />
+        </ScrollReveal>
+
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-12 mt-16">
+          {problems.map((problem, index) => (
+            <ScrollReveal key={problem.side} delay={index * 200}>
+              <div className="bg-white rounded-2xl border border-silver-100 shadow-premium overflow-hidden h-full">
+                <div className={`bg-gradient-to-r ${problem.color} p-6`}>
+                  <div className="flex items-center gap-4">
+                    <span className="text-4xl">{problem.icon}</span>
+                    <h3 className="text-xl font-bold text-white font-display">
+                      {problem.side}
+                    </h3>
+                  </div>
+                </div>
+                <div className="p-8">
+                  <ul className="space-y-4">
+                    {problem.issues.map((issue) => (
+                      <li key={issue} className="flex items-start gap-3">
+                        <svg
+                          className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.34 16.5c-.77.833.192 2.5 1.732 2.5z"
+                          />
+                        </svg>
+                        <span className="text-silver-600">{issue}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
