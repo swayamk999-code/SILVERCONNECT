@@ -1,0 +1,86 @@
+// src/types/index.ts
+export interface Mentor {
+  id: string;
+  name: string;
+  title: string;
+  expertise: string[];
+  experience: number;
+  rating: number;
+  reviews: number;
+  avatar: string;
+  verified: boolean;
+  hourlyRate: number;
+  bio: string;
+  availability: string;
+  location: string;
+  industry: string;
+}
+
+export interface Business {
+  id: string;
+  name: string;
+  type: string;
+  industry: string;
+  size: string;
+  logo: string;
+  description: string;
+  location: string;
+  needsHelp: string[];
+}
+
+export interface Testimonial {
+  id: string;
+  name: string;
+  role: string;
+  company: string;
+  avatar: string;
+  content: string;
+  rating: number;
+  type: 'mentor' | 'business';
+}
+
+export interface PricingPlan {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  period: string;
+  features: string[];
+  highlighted: boolean;
+  cta: string;
+  badge?: string;
+}
+
+export interface FAQ {
+  id: string;
+  question: string;
+  answer: string;
+  category: string;
+}
+
+export interface Feature {
+  icon: string;
+  title: string;
+  description: string;
+  color: string;
+}
+
+export interface Stat {
+  value: number;
+  suffix: string;
+  label: string;
+  prefix?: string;
+}
+
+export interface NavLink {
+  label: string;
+  href: string;
+  children?: NavLink[];
+}
+
+export interface DashboardStats {
+  label: string;
+  value: string;
+  change: string;
+  trend: 'up' | 'down';
+}
