@@ -1,0 +1,59 @@
+// src/components/shared/SectionHeader.tsx
+import { cn } from '@/lib/utils'
+import Badge from '@/components/ui/Badge'
+
+interface SectionHeaderProps {
+  badge?: string
+  title: string
+  subtitle?: string
+  align?: 'left' | 'center'
+  dark?: boolean
+  className?: string
+}
+
+export default function SectionHeader({
+  badge,
+  title,
+  subtitle,
+  align = 'center',
+  dark = false,
+  className,
+}: SectionHeaderProps) {
+  return (
+    <div
+      className={cn(
+        'max-w-3xl',
+        align === 'center' && 'mx-auto text-center',
+        className
+      )}
+    >
+      {badge && (
+        <Badge
+          variant={dark ? 'gold' : 'primary'}
+          size="lg"
+          className="mb-4"
+        >
+          {badge}
+        </Badge>
+      )}
+      <h2
+        className={cn(
+          'text-3xl md:text-4xl lg:text-5xl font-bold font-display tracking-tight text-balance',
+          dark ? 'text-white' : 'text-silver-900'
+        )}
+      >
+        {title}
+      </h2>
+      {subtitle && (
+        <p
+          className={cn(
+            'mt-4 text-lg md:text-xl leading-relaxed',
+            dark ? 'text-silver-300' : 'text-silver-500'
+          )}
+        >
+          {subtitle}
+        </p>
+      )}
+    </div>
+  )
+}
