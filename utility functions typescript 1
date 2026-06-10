@@ -1,0 +1,218 @@
+// src/lib/constants.ts
+import { NavLink, PricingPlan, FAQ, Testimonial, Stat } from '@/types'
+
+export const NAV_LINKS: NavLink[] = [
+  { label: 'About', href: '/about' },
+  { label: 'How It Works', href: '/how-it-works' },
+  { label: 'For Mentors', href: '/for-mentors' },
+  { label: 'For Businesses', href: '/for-businesses' },
+  { label: 'Pricing', href: '/pricing' },
+  { label: 'Success Stories', href: '/success-stories' },
+  { label: 'Contact', href: '/contact' },
+]
+
+export const STATS: Stat[] = [
+  { value: 2500, suffix: '+', label: 'Expert Mentors' },
+  { value: 1200, suffix: '+', label: 'Businesses Served' },
+  { value: 15000, suffix: '+', label: 'Sessions Completed' },
+  { value: 98, suffix: '%', label: 'Satisfaction Rate' },
+]
+
+export const TESTIMONIALS: Testimonial[] = [
+  {
+    id: '1',
+    name: 'Rajesh Kumar',
+    role: 'Retired Bank Manager',
+    company: 'Former SBI',
+    avatar: 'RK',
+    content: 'SilverConnect gave me a renewed sense of purpose after retirement. I now mentor 3 fintech startups and feel more energized than ever. My 35 years of banking experience is finally being valued again.',
+    rating: 5,
+    type: 'mentor',
+  },
+  {
+    id: '2',
+    name: 'Priya Sharma',
+    role: 'Founder & CEO',
+    company: 'HealthTech Innovations',
+    avatar: 'PS',
+    content: 'Finding an experienced hospital administrator through SilverConnect was a game-changer. Dr. Mehta helped us avoid costly mistakes and accelerated our growth by 18 months.',
+    rating: 5,
+    type: 'business',
+  },
+  {
+    id: '3',
+    name: 'Dr. Anand Patel',
+    role: 'Retired Professor',
+    company: 'Former IIT Delhi',
+    avatar: 'AP',
+    content: 'After 40 years in academia, I thought my teaching days were over. Through SilverConnect, I now conduct workshops for EdTech companies and help shape the future of education technology.',
+    rating: 5,
+    type: 'mentor',
+  },
+  {
+    id: '4',
+    name: 'Sneha Reddy',
+    role: 'COO',
+    company: 'GreenManufacture Co.',
+    avatar: 'SR',
+    content: 'The retired manufacturing expert we connected with through SilverConnect helped us optimize our production line, reducing waste by 35% and saving us ₹2 Crores annually.',
+    rating: 5,
+    type: 'business',
+  },
+  {
+    id: '5',
+    name: 'Col. Vikram Singh (Retd.)',
+    role: 'Retired Army Officer',
+    company: 'Indian Army',
+    avatar: 'VS',
+    content: 'Leadership principles I developed over 30 years now help startups build strong organizational cultures. SilverConnect bridges the gap between experience and innovation beautifully.',
+    rating: 5,
+    type: 'mentor',
+  },
+  {
+    id: '6',
+    name: 'Amit Joshi',
+    role: 'Founder',
+    company: 'LegalEase Startup',
+    avatar: 'AJ',
+    content: 'Having a retired High Court lawyer as our legal advisor through SilverConnect gave us credibility with investors and helped us navigate complex regulatory frameworks with confidence.',
+    rating: 5,
+    type: 'business',
+  },
+]
+
+export const PRICING_PLANS: PricingPlan[] = [
+  {
+    id: 'starter',
+    name: 'Starter',
+    description: 'Perfect for small businesses starting their mentorship journey',
+    price: 4999,
+    period: 'month',
+    features: [
+      'Up to 3 mentor connections',
+      '5 hours of consulting/month',
+      'Basic AI matching',
+      'Email support',
+      'Video consultations',
+      'Basic analytics',
+    ],
+    highlighted: false,
+    cta: 'Start Free Trial',
+  },
+  {
+    id: 'professional',
+    name: 'Professional',
+    description: 'Ideal for growing businesses needing regular expert guidance',
+    price: 14999,
+    period: 'month',
+    features: [
+      'Up to 10 mentor connections',
+      '20 hours of consulting/month',
+      'Advanced AI matching',
+      'Priority support',
+      'Video & in-person consultations',
+      'Advanced analytics dashboard',
+      'Workshop access',
+      'Dedicated account manager',
+    ],
+    highlighted: true,
+    cta: 'Start Free Trial',
+    badge: 'Most Popular',
+  },
+  {
+    id: 'enterprise',
+    name: 'Enterprise',
+    description: 'For organizations requiring comprehensive advisory solutions',
+    price: 49999,
+    period: 'month',
+    features: [
+      'Unlimited mentor connections',
+      'Unlimited consulting hours',
+      'Premium AI matching with guarantees',
+      '24/7 dedicated support',
+      'All consultation modes',
+      'Custom analytics & reporting',
+      'Exclusive workshops & training',
+      'Dedicated success manager',
+      'Custom integrations',
+      'SLA guarantees',
+    ],
+    highlighted: false,
+    cta: 'Contact Sales',
+  },
+]
+
+export const FAQS: FAQ[] = [
+  {
+    id: '1',
+    question: 'How does SilverConnect match mentors with businesses?',
+    answer: 'Our proprietary AI matching algorithm analyzes over 50 parameters including industry expertise, years of experience, specific skill sets, availability, location preferences, and business requirements to suggest the most relevant mentor-business pairings. The algorithm continuously learns from successful matches to improve recommendations.',
+    category: 'general',
+  },
+  {
+    id: '2',
+    question: 'What qualifications do mentors need?',
+    answer: 'We look for professionals with a minimum of 15 years of industry experience, verifiable credentials, and a genuine passion for mentoring. All mentors go through our rigorous verification process including background checks, credential verification, and reference checks.',
+    category: 'mentors',
+  },
+  {
+    id: '3',
+    question: 'How do mentors get compensated?',
+    answer: 'Mentors set their own hourly rates based on their expertise and market demand. SilverConnect handles all billing and payments, taking a small platform fee. Mentors receive payments bi-weekly directly to their bank accounts. Some mentors also choose to offer pro-bono sessions.',
+    category: 'mentors',
+  },
+  {
+    id: '4',
+    question: 'Is there a free trial available?',
+    answer: 'Yes! We offer a 14-day free trial on all plans. During the trial, you get full access to our platform features including AI matching, one complimentary consultation session, and access to our mentor directory. No credit card required to start.',
+    category: 'pricing',
+  },
+  {
+    id: '5',
+    question: 'Can I switch plans or cancel anytime?',
+    answer: 'Absolutely. You can upgrade, downgrade, or cancel your subscription at any time. Changes take effect at the start of the next billing cycle. We believe in earning your business every month, so there are no long-term contracts or cancellation fees.',
+    category: 'pricing',
+  },
+  {
+    id: '6',
+    question: 'What industries do you cover?',
+    answer: 'We have mentors across 40+ industries including Banking & Finance, Healthcare, Manufacturing, Technology, Education, Legal, Government & Public Policy, Agriculture, Real Estate, and many more. Our fastest-growing categories are FinTech, HealthTech, and EdTech.',
+    category: 'general',
+  },
+  {
+    id: '7',
+    question: 'How are consultations conducted?',
+    answer: 'Consultations can be conducted via our built-in video conferencing platform, phone calls, or in-person meetings depending on mentor availability and mutual preference. All video sessions are secure, encrypted, and can be recorded with mutual consent for future reference.',
+    category: 'general',
+  },
+  {
+    id: '8',
+    question: 'What kind of support can businesses expect?',
+    answer: 'Businesses can access one-on-one mentoring, advisory board formation, strategic consulting, workshops and training sessions, operational guidance, regulatory compliance help, market entry strategies, and more. The type of support is customized based on your specific needs.',
+    category: 'business',
+  },
+]
+
+export const MENTOR_CATEGORIES = [
+  'Banking & Finance',
+  'Engineering & Technology',
+  'Healthcare & Medicine',
+  'Education & Academia',
+  'Legal & Compliance',
+  'Government & Policy',
+  'Manufacturing & Operations',
+  'Human Resources',
+  'Marketing & Sales',
+  'Corporate Strategy',
+]
+
+export const COMPANY_LOGOS = [
+  'TechCorp',
+  'HealthFirst',
+  'EduVenture',
+  'FinGrow',
+  'ManufactureX',
+  'LegalEdge',
+  'AgriTech',
+  'BuildRight',
+]
